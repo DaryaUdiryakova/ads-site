@@ -87,7 +87,7 @@ const mutations = {
 const actions = {
 
   initStore: (context) => {
-    axios.get('/static/products.json')
+    axios.get('/static/products.json', { baseURL: window.location.href })
       .then((response) => {
         context.commit('SET_STORE', response.data.products)
       });
