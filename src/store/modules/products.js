@@ -83,7 +83,7 @@ const mutations = {
   }
 
 };
-// const dataJson = require("/static/products-test.json");
+
 const actions = {
 
   initStore: (context) => {

@@ -34,7 +34,7 @@ export default {
 
   <div class="col-12 sort-section">
 
-    <fieldset>
+    <fieldset class="col-6">
 
       <legend class="col-form-label">Показать сначала:</legend>
       <div

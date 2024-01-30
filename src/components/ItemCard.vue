@@ -48,7 +48,7 @@ export default {
       @click="showModal(product.id)"
     >
       <div class="row g-0">
-        <div class="col-md-4 img-box">
+        <div class="col-4 col-sm-3 img-box">
 
           <vue-hover-slider
             :slides="product.image"
@@ -61,7 +61,7 @@ export default {
           </vue-hover-slider>
 
         </div>
-        <div class="col-md-8">
+        <div class="col-8 col-sm-7">
           <div class="card-body">
             <h5 class="card-title text-primary">{{product.title}}</h5>
             <p class="card-price fw-bold">{{$filters.formatPrice(product.price)}}</p>
@@ -93,6 +93,7 @@ export default {
 <style lang="scss" scoped>
 .wrap-card {
   position: relative;
+  // min-width: 790px;
   .card {
     margin: 20px 0;
     border: 0;

@@ -13,11 +13,11 @@ export default {
       </div>
       <div class="item-parameters text-transmission col">
         <p class="text-secondary fw-bold"> Коробка передач</p>
-        <p class="fw-bold">{{product.transmission}}</p>
+        <p class="fw-bold">{{product.transmissionText}}</p>
       </div>
       <div class="item-parameters text-body-type col">
         <p class="text-secondary fw-bold">Тип кузова</p>
-        <p class="fw-bold">{{product.type}}</p>
+        <p class="fw-bold">{{product.typeText}}</p>
       </div>
     </div>
 

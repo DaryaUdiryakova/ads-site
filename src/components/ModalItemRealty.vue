@@ -8,7 +8,7 @@ export default {
     <div class="row align-items-start">
       <div class="item-parameters col">
         <p class="text-secondary fw-bold">Тип недвижимости</p>
-        <p class="fw-bold">{{product.type}}</p>
+        <p class="fw-bold">{{product.typeText}}</p>
       </div>
       <div class="item-parameters col">
         <p class="text-secondary fw-bold">Минимальная площадь, м</p>

@@ -81,8 +81,7 @@ export default {
 <template>
 
   <div class="row">
-
-    <div class="col-3">
+    <div class="col-3 ">
 
       <FilterSection
         @filterCategory="filterCategory"
@@ -93,7 +92,7 @@ export default {
 
     </div>
 
-    <div class="result-section col">
+    <div class="result-section col ">
       <h3 class="title-section"> Результаты</h3>
 
       <SortSection
@@ -126,6 +125,7 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   color: #2c3e50;
   padding: 30px 70px;
+  min-width: 1190px;
   background: #f5f6f9;
   .result-section {
     padding-left: 40px;
@@ -134,6 +134,11 @@ export default {
       margin-top: 100px;
       text-align: center;
     }
+  }
+}
+@media (max-width: 1240px) {
+  #app {
+    padding: 30px;
   }
 }
 </style>
