@@ -1,5 +1,4 @@
 <template>
-
   <span
     class="vue-hover-slider__controls"
     :class="isShowControls"
@@ -17,7 +16,6 @@
       <span class="vue-hover-slider__control-mark"></span>
     </span>
   </span>
-
 </template>
 
 <script>
@@ -48,6 +46,7 @@ export default {
         this.$emit("input", v);
       },
     },
+
     isShowControls() {
       return {
         "hide-controls": this.slides.length <= 1,
@@ -58,9 +57,11 @@ export default {
     setControls(el) {
       this.controls.push(el);
     },
+
     showImgIndex(index) {
       this.$emit("imgIndex", index);
     },
+
     firstImgIndex() {
       this.$emit("firstImgIndex");
     },

@@ -16,7 +16,6 @@
 .vue-hover-slider__image {
   border-radius: 5px 0 0 5px;
   background-size: cover;
-  // background-position: center;
   background-position: 0 80%;
   background-repeat: no-repeat;
   display: none;
@@ -83,7 +82,6 @@
   position: relative;
 
   &--active .vue-hover-slider__control-mark{
-    // background: #277BD0;
     background: rgba(255, 255, 255, 0.7);
   }
 }

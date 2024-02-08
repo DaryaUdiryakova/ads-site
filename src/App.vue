@@ -2,6 +2,7 @@
 import SortSection from "@/components/SortSection.vue";
 import FilterSection from "@/components/FilterSection.vue";
 import ItemCard from "@/components/ItemCard.vue";
+
 let propsFilter = {
   selectYearRelease: 0,
   transmission: 0,
@@ -15,6 +16,7 @@ let propsFilter = {
   minPriceContent: "",
   maxPriceContent: "",
 };
+
 export default {
   name: "App",
   components: {
@@ -32,11 +34,9 @@ export default {
       toggleLikeShow: false,
     };
   },
-
   created() {
     this.$store.dispatch("initStore");
   },
-
   methods: {
     filterCategory(category) {
       this.category = { selectCategory: category };
@@ -46,12 +46,15 @@ export default {
     filter(filter) {
       this.filtersName = filter;
     },
+
     sortProd(elem) {
       this.sortKey = elem;
     },
+
     addLikeProducts(id) {
       this.$store.dispatch("toggleLike", id - 1);
     },
+
     toggleLike() {
       this.toggleLikeShow = !this.toggleLikeShow;
     },
@@ -69,57 +72,51 @@ export default {
         this.toggleLikeShow
       );
     },
+
     minPriceRange() {
       return Math.min(...this.filteredProducts.map((o) => o.price));
     },
+
     maxPriceRange() {
       return Math.max(...this.filteredProducts.map((o) => o.price));
     },
   },
 };
 </script>
-<template>
 
+<template>
   <div class="row">
     <div class="col-3 ">
-
       <FilterSection
         @filterCategory="filterCategory"
         @showFiltered="filter"
         :minPrice="minPriceRange"
         :maxPrice="maxPriceRange"
       />
-
     </div>
-
     <div class="result-section col ">
-      <h3 class="title-section"> Результаты</h3>
-
+      <h3 class="title-section">Результаты</h3>
       <SortSection
         :category='category'
         @sortTest="sortProd"
         @toggleLike="toggleLike"
       />
-
       <ItemCard
         v-for="product in newFilteredProducts"
         :product="product"
         :key="product.id"
         @addLikeProducts='addLikeProducts'
       />
-
       <div
         class="no-result"
         v-if="newFilteredProducts.length == 0"
       >
         Ничего не найдено
       </div>
-
     </div>
-
   </div>
-
 </template>
+
 <style lang="scss">
 #app {
   font-family: Helvetica, Arial, sans-serif;

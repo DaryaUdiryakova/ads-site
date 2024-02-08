@@ -5,7 +5,6 @@ const state = {
 };
 
 const getters = {
-
   getSelectCategory: state => filter => {
     let filteredSelectCategory = state.products
       .filter(product => {
@@ -35,7 +34,6 @@ const getters = {
       .filter(product => {
         return filter.countRoomСheck == 0 || product.countRooms == filter.countRoomСheck;
       })
-
       .filter(product => {
         return filter.ram == 0 || product.ram == filter.ram;
       })
@@ -61,6 +59,7 @@ const getters = {
         return resultDate
       });
     }
+
     if (sort === 1) {
       return filtered.sort((a, b) => {
         return a.price - b.price;
@@ -81,11 +80,9 @@ const mutations = {
   'TOGGLE_LIKE'(state, index) {
     state.products[index].like = !state.products[index].like;
   }
-
 };
 
 const actions = {
-
   initStore: (context) => {
     axios.get(window.location.href + '/static/products.json')
       .then((response) => {
@@ -96,7 +93,6 @@ const actions = {
   toggleLike({ commit }, index) {
     commit('TOGGLE_LIKE', index);
   }
-
 };
 
 export default {

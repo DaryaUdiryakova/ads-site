@@ -1,7 +1,7 @@
 <script>
+import { Modal } from "bootstrap";
 import VueHoverSlider from "@/vue-hover-slider/VueHoverSlider";
 import ModalCard from "@/components/ModalCard.vue";
-import { Modal } from "bootstrap";
 
 export default {
   components: {
@@ -22,18 +22,23 @@ export default {
       let modal = Modal.getOrCreateInstance(myModalEl);
       return modal;
     },
+
     showModal(id) {
       this.showModalIf = true;
+
       this.$nextTick(() => {
         this.idModal(id).show();
       });
     },
+
     closeModal(id) {
       this.$nextTick(() => {
         this.idModal(id).hide();
       });
+
       this.showModalIf = false;
     },
+
     addLikeProducts(id) {
       this.isActive = !this.isActive;
       this.$emit("addLikeProducts", id);
@@ -41,6 +46,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="wrap-card">
     <div
@@ -49,7 +55,6 @@ export default {
     >
       <div class="row g-0">
         <div class="col-4 col-sm-3 img-box">
-
           <vue-hover-slider
             :slides="product.image"
             :height="220"
@@ -59,7 +64,6 @@ export default {
               ещё {{ count }} фото
             </template>
           </vue-hover-slider>
-
         </div>
         <div class="col-8 col-sm-7">
           <div class="card-body">
@@ -69,9 +73,7 @@ export default {
             <p class="card-date text-secondary">{{product.date}}</p>
           </div>
         </div>
-
       </div>
-
     </div>
     <button
       type="button"
@@ -89,16 +91,13 @@ export default {
   </div>
 </template>
 
-
 <style lang="scss" scoped>
 .wrap-card {
   position: relative;
-  // min-width: 790px;
   .card {
     margin: 20px 0;
     border: 0;
     cursor: pointer;
-
     .img-box {
       position: relative;
       overflow: hidden;

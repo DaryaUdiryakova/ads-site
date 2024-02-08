@@ -10,7 +10,6 @@ export default {
       maxPricePlaceholder: "до " + 22500000,
     };
   },
-
   methods: {
     printPriceMinMax() {
       this.$emit("printPriceMinMax");
@@ -18,10 +17,9 @@ export default {
   },
 };
 </script>
+
 <template>
-
   <div class='input-price'>
-
     <input
       id="customPriceMin"
       type="number"
@@ -34,7 +32,6 @@ export default {
       @input="$emit('update:minPriceTest', $event.target.value)"
       @focus="printPriceMinMax"
     >
-
     <input
       id="customPriceMax"
       type="number"
@@ -48,16 +45,13 @@ export default {
       @focus="printPriceMinMax"
     >
   </div>
-
 </template>
-
 
 <style lang="scss" scoped>
 .input-price {
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   .input-item {
     width: 45%;
   }

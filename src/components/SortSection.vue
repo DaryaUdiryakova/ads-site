@@ -13,11 +13,11 @@ export default {
       isActive: false,
     };
   },
-
   watch: {
     sortNameСheck(newSort) {
       this.$emit("sortTest", newSort);
     },
+
     category() {
       this.sortNameСheck = 0;
     },
@@ -30,12 +30,10 @@ export default {
   },
 };
 </script>
+
 <template>
-
   <div class="col-12 sort-section">
-
     <fieldset class="col-6">
-
       <legend class="col-form-label">Показать сначала:</legend>
       <div
         class="btn-group"
@@ -61,17 +59,14 @@ export default {
             :for="'sortName' + item.id"
           > {{item.name}} </label>
         </template>
-
       </div>
     </fieldset>
-
     <button
       type="button"
       class="btn "
       @click="toggleLike"
       :class="[isActive ? 'btn-primary' : 'btn-outline-primary']"
     >Показать избранные</button>
-
   </div>
 </template>
 

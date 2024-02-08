@@ -11,6 +11,7 @@ app.config.globalProperties.$filters = {
     return new Intl.NumberFormat("ru-RU").format(price) + ' ₽'
   }
 }
+
 app.use(store).mount('#app');
 
 

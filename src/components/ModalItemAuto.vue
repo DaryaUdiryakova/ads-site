@@ -3,8 +3,8 @@ export default {
   props: ["product"],
 };
 </script>
-<template>
 
+<template>
   <div>
     <div class="row align-items-start">
       <div class="item-parameters text-year col">
@@ -20,14 +20,12 @@ export default {
         <p class="fw-bold">{{product.typeText}}</p>
       </div>
     </div>
-
     <div class="item-parameters text-description">
       <p class="text-secondary fw-bold">Описание товара</p>
       <p>{{product.description}}</p>
     </div>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 </style>

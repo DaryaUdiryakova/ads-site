@@ -1,7 +1,6 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-
 import ModalItemRealty from "@/components/ModalItemRealty.vue";
 import ModalItemAuto from "@/components/ModalItemAuto.vue";
 import ModalItemLaptop from "@/components/ModalItemLaptop.vue";
@@ -14,9 +13,7 @@ export default {
     ModalItemAuto,
     ModalItemLaptop,
   },
-
   props: ["product"],
-
   methods: {
     closeModal(id) {
       this.$emit("closeModal", id);
@@ -24,6 +21,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div
     class="modal fade "
@@ -42,19 +40,16 @@ export default {
             >{{product.title}}</h5>
             <p class="modal-price fw-bold">{{$filters.formatPrice(product.price)}}</p>
           </div>
-
           <button
             type="button"
             class="btn-close"
             @click="closeModal(product.id)"
           >
           </button>
-
         </div>
         <div class="modal-body">
           <div class="item-flex">
             <div class="photo-gallery">
-
               <vueper-slides
                 ref="vueperslides1"
                 :touchable="false"
@@ -74,7 +69,6 @@ export default {
                 >
                 </vueper-slide>
               </vueper-slides>
-
               <vueper-slides
                 v-if="product.image.length>1"
                 class="no-shadow thumbnails"
@@ -107,19 +101,15 @@ export default {
               </div>
             </div>
           </div>
-
           <component
             :is="product.component"
             :product="product"
           ></component>
-
         </div>
-
       </div>
     </div>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 .modal-header {
@@ -145,7 +135,6 @@ export default {
     align-items: flex-start;
     .photo-gallery {
       margin-bottom: 20px;
-
       .vueperslides {
         width: 400px;
         margin-top: 5px;

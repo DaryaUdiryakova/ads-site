@@ -1,6 +1,5 @@
 <template>
   <div :style="containerStyles">
-
     <div
       class="vue-hover-slider"
       v-if="slides.length > 0"
@@ -27,7 +26,6 @@
         @firstImgIndex="firstImgIndexUpd"
       />
       <div class="vue-hover-slider__images">
-
         <span
           v-for="(image, index) in slicedSlides"
           :key="index"
@@ -35,7 +33,6 @@
           :class="{'vue-hover-slider__image--visible': activeSlide === index, 'last-slide': index === countSlides-1 && countSlides >= maxSlidesToShow}"
           :style="`background-image: url('${image}')`"
         >
-
           <span
             v-if="countSlidesLeft"
             class="vue-hover-slider__image-overlay"
@@ -64,7 +61,6 @@
       class="vue-hover-slider__image vue-hover-slider__image--visible"
       :style="`background-image: url(${defaultImage})`"
     ></div>
-
   </div>
 </template>
 
@@ -115,17 +111,21 @@ export default {
     linkTarget() {
       return this.openInNewTab ? "_blank" : "_self";
     },
+
     containerStyles() {
       return {
         height: this.height ? `${this.height}px` : "",
       };
     },
+
     slicedSlides() {
       return this.slides.slice(0, this.maxSlidesToShow);
     },
+
     countSlides() {
       return this.slicedSlides.length;
     },
+
     countSlidesLeft() {
       return this.slides.length > this.countSlides
         ? this.slides.length - this.countSlides
@@ -141,9 +141,11 @@ export default {
         });
       }
     },
+
     imgIndexUpd(e) {
       this.activeSlide = e;
     },
+
     firstImgIndexUpd() {
       this.activeSlide = 0;
     },

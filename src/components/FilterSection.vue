@@ -1,7 +1,6 @@
 <script>
-import InputPrice from "@/components/InputPrice.vue";
-
 import { toRaw } from "vue";
+import InputPrice from "@/components/InputPrice.vue";
 
 export default {
   name: "FilterSection",
@@ -94,14 +93,12 @@ export default {
       },
     };
   },
-
   watch: {
     selectCategory(newCategory) {
       this.$emit("filterCategory", newCategory);
       this.clear();
     },
   },
-
   methods: {
     showFiltered() {
       let filterNoReactive = { ...toRaw(this.filter) };
@@ -112,9 +109,10 @@ export default {
       if (filterNoReactive.maxPriceContent == "") {
         filterNoReactive.maxPriceContent = this.maxPrice;
       }
-      console.log(filterNoReactive.maxPriceContent);
+
       this.$emit("showFiltered", filterNoReactive);
     },
+
     clear() {
       this.filter = {
         selectYearRelease: 0,
@@ -130,6 +128,7 @@ export default {
         maxPriceContent: "",
       };
     },
+
     printPriceMinMax() {
       if (
         this.filter.minPriceContent == "" ||
@@ -142,11 +141,10 @@ export default {
   },
 };
 </script>
+
 <template>
-
   <div class="filter-section">
-
-    <h3 class="title-section">Фильтр </h3>
+    <h3 class="title-section">Фильтр</h3>
     <div class="col-12 mb-3">
       <label
         for="select-products"
@@ -163,12 +161,10 @@ export default {
           :key="category.id"
           :value="category.id"
         >{{ category.category }}</option>
-
       </select>
     </div>
     <div class="col-12 mb-3">
-      <label class="form-label"> Цена, &#8381;</label>
-
+      <label class="form-label">Цена, &#8381;</label>
       <InputPrice
         v-model:minPriceTest="filter.minPriceContent"
         v-model:maxPriceTest="filter.maxPriceContent"
@@ -176,14 +172,11 @@ export default {
         :maxPriceLimit="maxPrice"
         @printPriceMinMax="printPriceMinMax"
       />
-
     </div>
     <div v-if="selectCategory === 1">
-
       <fieldset class="col-12 mb-3">
         <legend class="col-form-label">Тип недвижимости</legend>
         <div>
-
           <div
             class="form-check"
             v-for="item in realty.propertyType"
@@ -203,7 +196,6 @@ export default {
               {{item.name}}
             </label>
           </div>
-
         </div>
       </fieldset>
       <div class="col-12 mb-3">
@@ -216,13 +208,11 @@ export default {
         >
       </div>
       <fieldset class="col-12 mb-3">
-
         <legend class="col-form-label">Количество комнат</legend>
         <div
           class="btn-group"
           role="group"
         >
-
           <template
             v-for="item in realty.countRoom"
             :key="item.id"
@@ -241,21 +231,17 @@ export default {
               :for="'countRoom' + item.id"
             > {{item.name}} </label>
           </template>
-
         </div>
       </fieldset>
       <div class="col-12 mb-3">
-
       </div>
     </div>
     <div v-else-if="selectCategory === 2">
-
       <div class="col-12 mb-3">
         <label
           for="select-year-release"
           class="form-label"
-        > Год выпуска </label>
-
+        >Год выпуска </label>
         <select
           class="form-select"
           id="select-year-release"
@@ -269,9 +255,8 @@ export default {
           > {{item.year}} </option>
         </select>
       </div>
-
       <fieldset class="col-12 mb-3">
-        <legend class="col-form-label"> Коробка передач</legend>
+        <legend class="col-form-label">Коробка передач</legend>
         <div
           class="btn-group"
           role="group"
@@ -294,11 +279,10 @@ export default {
               :for="'transmission' + item.id"
             > {{item.name}} </label>
           </template>
-
         </div>
       </fieldset>
       <fieldset class="col-12 mb-3">
-        <legend class="col-form-label"> Тип кузова</legend>
+        <legend class="col-form-label">Тип кузова</legend>
         <div>
           <div
             class="form-check"
@@ -319,20 +303,16 @@ export default {
               {{item.name}}
             </label>
           </div>
-
         </div>
       </fieldset>
     </div>
-
     <div v-else-if="selectCategory === 3">
-
       <fieldset class="col-12 mb-3">
-        <legend class="col-form-label"> Объем оперативной памяти (ГБ)</legend>
+        <legend class="col-form-label">Объем оперативной памяти (ГБ)</legend>
         <div
           class="btn-group"
           role="group"
         >
-
           <template
             v-for="item in notebook.amountRam"
             :key="item.id"
@@ -350,19 +330,15 @@ export default {
               class="btn btn-outline-primary"
               :for="'ram' + item.id"
             > {{item.name}} </label>
-
           </template>
-
         </div>
       </fieldset>
-
       <fieldset class="col-12 mb-3">
-        <legend class="col-form-label"> Диагональ экрана (дюйм)</legend>
+        <legend class="col-form-label">Диагональ экрана (дюйм)</legend>
         <div
           class="btn-group"
           role="group"
         >
-
           <template
             v-for="item in notebook.screenDiagonal"
             :key="item.id"
@@ -380,22 +356,17 @@ export default {
               class="btn btn-outline-primary"
               :for="'diagonal' + item.id"
             > {{item.name}} </label>
-
           </template>
-
         </div>
       </fieldset>
-
       <fieldset class="col-12 mb-3">
         <legend class="col-form-label">Тип процессора</legend>
         <div>
-
           <div
             class="form-check"
             v-for="item in notebook.processorTypeCheck"
             :key="item.id"
           >
-
             <input
               class="form-check-input"
               v-model="filter.processorType"
@@ -410,14 +381,11 @@ export default {
               {{item.name}}
             </label>
           </div>
-
         </div>
       </fieldset>
-
     </div>
     <div v-else>
       <div class="col-12 mb-3">
-
       </div>
     </div>
     <button
@@ -426,9 +394,7 @@ export default {
       @click="showFiltered"
     >Показать</button>
   </div>
-
 </template>
-
 
 <style lang="scss" scoped>
 .filter-section {
@@ -436,7 +402,6 @@ export default {
   .btn-group {
     width: 100%;
   }
-
   .filter-section__btn-show {
     margin-top: 15px;
   }

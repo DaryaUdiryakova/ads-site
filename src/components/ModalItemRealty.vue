@@ -3,6 +3,7 @@ export default {
   props: ["product"],
 };
 </script>
+
 <template>
   <div>
     <div class="row align-items-start">
@@ -19,14 +20,12 @@ export default {
         <p class="fw-bold">{{product.countRooms}}</p>
       </div>
     </div>
-
     <div class="item-parameters text-description">
       <p class="text-secondary fw-bold">Описание товара</p>
       <p>{{product.description}}</p>
     </div>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 </style>
